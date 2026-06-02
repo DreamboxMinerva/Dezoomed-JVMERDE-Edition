@@ -1,14 +1,12 @@
 // ==UserScript==
 // @name         JVC Redesign - Refonte de l'interface du forum
 // @namespace    http://tampermonkey.net/
-// @version      3.7
+// @version      3.8
 // @author       StrangerFruit, sur la base d'un script de BlackArch + Bakuredo + captain_cid31 + herolink + Can-02
 // @description  Tentative de rendre l'UI le plus agréable possible
-// @match        https://www.jeuxvideo.com/forums/0-*
-// @match        https://www.jeuxvideo.com/forums/42-*
-// @match        https://www.jeuxvideo.com/recherche/forums/0-*
-// @match        https://www.jeuxvideo.com/recherche/forums/42-*
+// @match        https://www.jeuxvideo.com/recherche/forums/*
 // @match        https://www.jeuxvideo.com/forums/message/*
+// @match        https://www.jeuxvideo.com/forums/*
 // @updateURL   https://raw.githubusercontent.com/DreamboxMinerva/JVC-Redesign/main/JVC-Redesign.user.js?nocache=1
 // @downloadURL https://raw.githubusercontent.com/DreamboxMinerva/JVC-Redesign/main/JVC-Redesign.user.js?nocache=1
 // @grant        GM_addStyle
