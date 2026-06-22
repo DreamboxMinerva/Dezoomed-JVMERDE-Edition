@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JVC Redesign - Refonte de l'interface du forum
 // @namespace    http://tampermonkey.net/
-// @version      3.8
+// @version      3.9
 // @author       StrangerFruit, sur la base d'un script de BlackArch + Bakuredo + captain_cid31 + herolink + Can-02
 // @description  Tentative de rendre l'UI le plus agréable possible
 // @match        https://www.jeuxvideo.com/recherche/forums/*
@@ -417,19 +417,17 @@ function Citations() {
     document.addEventListener('click', function(e) {
         const boutonCitation = e.target.closest('.messageUser__action[title="Citer le message"]');
         if (!boutonCitation) return;
-
-        e.stopImmediatePropagation();
-        e.preventDefault();
-
+        // Ignore les boutons reconstruits par TopicLive+ (pas de vrai composant React derrière)
+        if (boutonCitation.closest('.tl-inline-actions')) return;
         const post     = boutonCitation.closest(".messageUser__card");
         const fiberKey = Object.keys(boutonCitation).find(k => k.startsWith('__reactFiber$'));
         const props    = boutonCitation[fiberKey]?.return?.memoizedProps;
+        if (!props) return;
+        e.stopImmediatePropagation();
+        e.preventDefault();
         const pseudo   = post.querySelector(".messageUser__label")?.textContent.trim();
-
         const citation = `> Le ${props.date} '''${pseudo}''' a écrit :\n> ${props.text.split("\n").join("\n> ")}\n\n`;
-
         unsafeWindow.jvc.getMessageEditor(".messageEditor__edit").insertText(citation);
     }, true);
 }
-
 Citations();
