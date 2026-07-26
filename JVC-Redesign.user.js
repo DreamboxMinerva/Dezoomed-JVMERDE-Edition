@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JVC Redesign - Refonte de l'interface du forum
 // @namespace    http://tampermonkey.net/
-// @version      3.95
+// @version      3.96
 // @author       StrangerFruit, sur la base d'un script de BlackArch + Bakuredo + captain_cid31 + herolink + Can-02
 // @description  Tentative de rendre l'UI le plus agréable possible
 // @match        https://www.jeuxvideo.com/recherche/forums/*
@@ -153,8 +153,7 @@
             .layout { grid-template-columns: 1fr 51rem 24.5rem 1fr !important; }
             body.jvmerde-nosidebar .layout { grid-template-columns: 1fr 80rem 1fr !important; }
         }
-        @media (max-width: 1399px) { .layout { grid-template-columns: unset !important; } }
-        body.jvmerde-nosidebar .layout__row--gutter.layout__contentAside { display: none !important; }
+
 
         .tablesForum__bodyRow a:visited { color: var(--jv-text-muted-color) !important; }
         .messageUser__label {
@@ -320,6 +319,26 @@
             z-index: 2 !important;
             position: relative !important;
         }
+
+
+@media (max-width: 1350px) {
+
+    .buttonsNavbar {
+        flex-wrap: nowrap !important;
+    }
+
+    .buttonsNavbar__button {
+        padding-inline: 2px !important;
+        flex-shrink: 1;
+        min-width: 0;
+    }
+
+    .buttonsNavbar__label {
+        font-size: 13px !important;
+    }
+}
+
+
     `);
 
     // ─── Helpers ───────────────────────────────────
@@ -345,7 +364,7 @@
         const btn = document.createElement('button');
         btn.className = sourceBtn.className;
         btn.innerHTML = sourceBtn.innerHTML;
-       
+
         btn.addEventListener('click', () => location.reload());
         nav.appendChild(btn);
     } else {
