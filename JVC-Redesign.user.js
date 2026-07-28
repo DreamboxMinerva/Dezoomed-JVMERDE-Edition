@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JVC Redesign - Refonte de l'interface du forum
 // @namespace    http://tampermonkey.net/
-// @version      3.96
+// @version      3.97
 // @author       StrangerFruit, sur la base d'un script de BlackArch + Bakuredo + captain_cid31 + herolink + Can-02
 // @description  Tentative de rendre l'UI le plus agréable possible
 // @match        https://www.jeuxvideo.com/recherche/forums/*
@@ -355,9 +355,8 @@
         const nav = document.createElement('div');
         nav.className = 'buttonsNavbar';
 
-      sourceBtns.forEach((sourceBtn) => {
+     sourceBtns.forEach((sourceBtn) => {
     if (sourceBtn.querySelector('.icon-reply')) return;
-    if (sourceBtn.classList.contains('btn-jvchat')) return;
     if (sourceBtn.classList.contains('tl-settings-button')) return;
 
     if (sourceBtn.querySelector('.icon-refresh')) {
@@ -392,9 +391,9 @@
         const existing = document.getElementById('jvcr-bottom-bar');
         if (existing) {
             const existingBtns = existing.querySelectorAll('.buttonsNavbar__button').length;
-            const expectedBtns = [...sourceBtns].filter(b =>
-                !b.querySelector('.icon-reply') && !b.classList.contains('btn-jvchat')
-            ).length;
+           const expectedBtns = [...sourceBtns].filter(b =>
+    !b.querySelector('.icon-reply')
+).length;
             if (
                 existing.previousElementSibling === bottomPagi &&
                 existingBtns === expectedBtns
