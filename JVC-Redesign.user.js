@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JVC Redesign - Refonte de l'interface du forum
 // @namespace    http://tampermonkey.net/
-// @version      3.97
+// @version      3.98
 // @author       StrangerFruit, sur la base d'un script de BlackArch + Bakuredo + captain_cid31 + herolink + Can-02
 // @description  Tentative de rendre l'UI le plus agréable possible
 // @match        https://www.jeuxvideo.com/recherche/forums/*
@@ -321,22 +321,6 @@
         }
 
 
-@media (max-width: 1350px) {
-
-    .buttonsNavbar {
-        flex-wrap: nowrap !important;
-    }
-
-    .buttonsNavbar__button {
-        padding-inline: 2px !important;
-        flex-shrink: 1;
-        min-width: 0;
-    }
-
-    .buttonsNavbar__label {
-        font-size: 13px !important;
-    }
-}
 
 
     `);
